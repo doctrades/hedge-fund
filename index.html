@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doc Trades Hedge Fund</title>
+<meta name="description" content="Doc Trades Hedge Fund — fund performance, next trade window, and the investor ledger.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div class="brand-text">
+        <span class="brand-name">Doc Trades</span>
+        <span class="brand-sub">Hedge Fund</span>
+      </div>
+    </div>
+
+    <div class="currency-toggle" id="currencyToggle" role="group" aria-label="Currency">
+      <button type="button" class="cur-opt is-active" data-currency="USD" id="btnUSD">USD</button>
+      <span class="cur-slider" id="curSlider" aria-hidden="true"></span>
+      <button type="button" class="cur-opt" data-currency="INR" id="btnINR">INR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <p class="eyebrow">Fund performance, in real time</p>
+    <h1 class="hero-title">Doc Trades <em>Hedge Fund</em></h1>
+    <p class="hero-tagline" id="fundTagline">A disciplined prescription for capital growth.</p>
+
+    <div class="stat-row" id="statRow">
+      <div class="stat-card">
+        <span class="stat-label">Funds Raised</span>
+        <span class="stat-value" id="statRaised">$0</span>
+        <span class="stat-foot" id="statInvestors">0 investors</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Profit to Date</span>
+        <span class="stat-value stat-value--gold" id="statProfit">$0</span>
+        <span class="stat-foot" id="statProfitPct">+0.0% overall</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Fund Inception</span>
+        <span class="stat-value stat-value--small" id="statInception">—</span>
+        <span class="stat-foot" id="statAge">running for —</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE WINDOW -->
+  <section class="window-section wrap">
+    <div class="window-card">
+
+      <div class="stamp-wrap">
+        <div class="stamp" id="windowStamp">
+          <span class="stamp-line1" id="stampWord">CLOSED</span>
+          <span class="stamp-line2">Investment Window</span>
+        </div>
+      </div>
+
+      <div class="window-info">
+        <p class="window-status-text" id="windowStatusText">Checking window status…</p>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="cd-unit"><span class="cd-num" id="cdDays">00</span><span class="cd-label">days</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdHours">00</span><span class="cd-label">hrs</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdMins">00</span><span class="cd-label">min</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdSecs">00</span><span class="cd-label">sec</span></div>
+        </div>
+
+        <div class="timeline" id="timeline">
+          <div class="tl-step" id="stepOpen" data-step="open">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.2-2.4"/></svg>
+            </div>
+            <span class="tl-label">Opens</span>
+            <span class="tl-date" id="dateOpen">—</span>
+          </div>
+
+          <div class="tl-line" id="lineOne"><span class="tl-line-fill"></span></div>
+
+          <div class="tl-step" id="stepClose" data-step="close">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            </div>
+            <span class="tl-label">Closes</span>
+            <span class="tl-date" id="dateClose">—</span>
+          </div>
+
+          <div class="tl-line" id="lineTwo"><span class="tl-line-fill"></span></div>
+
+          <div class="tl-step" id="stepTrade" data-step="trade">
+            <div class="tl-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+            </div>
+            <span class="tl-label">Trade day</span>
+            <span class="tl-date" id="dateTrade">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERBOARD -->
+  <section class="ledger-section wrap" style="display: none;";>
+    <div class="ledger-heading">
+      <h2>Investors for 7th August</h2>
+      <p class="ledger-sub" id="ledgerSub">Payout figures publish once the current trade has settled.</p>
+    </div>
+
+    <div class="ledger-table-wrap">
+      <table class="ledger-table" id="ledgerTable">
+        <thead>
+          <tr>
+            <th class="col-rank">#</th>
+            <th class="col-name">Investor</th>
+            <th class="col-num">Invested</th>
+            <th class="col-num col-hidden" data-col="return">Return</th>
+            <th class="col-num col-hidden" data-col="roi">ROI %</th>
+            <th class="col-status col-hidden" data-col="payout">Payout</th>
+          </tr>
+        </thead>
+        <tbody id="ledgerBody">
+          <!-- rows injected by script.js -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-note">
+      Figures shown are for informational purposes only and reflect internal fund records.
+      Past performance does not guarantee future results. This page is not an offer to sell,
+      or a solicitation of an offer to buy, any security.
+    </p>
+    <p class="footer-meta"> <code>NOTE: </code> The USD to INR exchange rate is not absolute and may vary, due to taxes after conversion</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
