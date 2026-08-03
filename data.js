@@ -50,5 +50,5 @@ const CONFIG = {
 const LEADERBOARD = [
     { id: "INV-NT", name: "Navneet", investedUSD: 30, payoutGiven: false },
     { id: "INV-YR", name: "Yash", investedUSD: 30, payoutGiven: false },
-    { id: "INV-SP", name: "Snehil", investedUSD: 50, payoutGiven: false },
+    { id: "INV-SP", name: "Snehil", investedUSD: 30, payoutGiven: false },
 ];
