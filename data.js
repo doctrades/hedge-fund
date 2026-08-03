@@ -15,7 +15,7 @@ const CONFIG = {
     fund: {
         name: "Doc Trades Hedge Fund",
         inceptionDate: "2026-08-01",   // YYYY-MM-DD
-        totalRaisedUSD: 30,        // total capital raised to date
+        totalRaisedUSD: 90,        // total capital raised to date
         totalProfitUSD: 0,         // cumulative profit to date
         totalInvestors: 1
     },
