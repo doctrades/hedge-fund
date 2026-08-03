@@ -15,9 +15,9 @@ const CONFIG = {
     fund: {
         name: "Doc Trades Hedge Fund",
         inceptionDate: "2026-08-01",   // YYYY-MM-DD
-        totalRaisedUSD: 180,        // total capital raised to date
+        totalRaisedUSD: 120,        // total capital raised to date
         totalProfitUSD: 0,         // cumulative profit to date
-        totalInvestors: 4
+        totalInvestors: 3
     },
 
     // The next scheduled hedge trade, and the investment window
@@ -50,14 +50,10 @@ const CONFIG = {
    ------------------------------------------------------------ */
 const LEADERBOARD = [
     { name: "Naman Raj", investedUSD: 60, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Naman Dhw", investedUSD: 60, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Gitesh", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Jiya", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
+    // { name: "Naman Dhw", investedUSD: 60, returnUSD: 0, roiPercent: 0, payoutGiven: false },
+    { name: "Snehil", investedUSD: 50, returnUSD: 0, roiPercent: 0, payoutGiven: false },
     { name: "Navneet", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Shiva", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Shreyash", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Shivansh", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Snehil", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
+   { name: "Yash", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
 
 
 
