@@ -15,7 +15,7 @@ const CONFIG = {
     fund: {
         name: "Doc Trades Hedge Fund",
         inceptionDate: "2026-08-01",   // YYYY-MM-DD
-        returnsMultiplyer: 4.65, //0x,1x,2x,3x,4x
+        returnsMultiplyer: 0, //0x,1x,2x,3x,4x
         profitSplitMultiplier: 0.8, // 80% of profit is distributed to investors, 20% is retained by the fund
     },
 
@@ -36,7 +36,7 @@ const CONFIG = {
     // computed each investor's return. This reveals the
     // "Return", "ROI %", and "Payout Given" columns on the
     // leaderboard. Flip it back to false when a new round opens.
-    payoutsRevealed: true  
+    payoutsRevealed: false  
 };
 
 /* ------------------------------------------------------------
