@@ -15,7 +15,7 @@ const CONFIG = {
     fund: {
         name: "Doc Trades Hedge Fund",
         inceptionDate: "2026-08-01",   // YYYY-MM-DD
-        returnsMultiplyer: 0, //0x,1x,2x,3x,4x
+        returnsMultiplyer: 4.5, //0x,1x,2x,3x,4x
         profitSplitMultiplier: 0.8, // 80% of profit is distributed to investors, 20% is retained by the fund
     },
 
