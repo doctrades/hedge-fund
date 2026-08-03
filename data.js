@@ -10,14 +10,13 @@
 const CONFIG = {
     // 1 USD = this many INR. Update this constant whenever you
     // want to refresh the peg used for the currency toggle.
-    usdToInr: 98.22,
+    usdToInr: 95.34,
 
     fund: {
         name: "Doc Trades Hedge Fund",
         inceptionDate: "2026-08-01",   // YYYY-MM-DD
-        totalRaisedUSD: 120,        // total capital raised to date
-        totalProfitUSD: 0,         // cumulative profit to date
-        totalInvestors: 3
+        returnsMultiplyer: 4.65, //0x,1x,2x,3x,4x
+        profitSplitMultiplier: 0.8, // 80% of profit is distributed to investors, 20% is retained by the fund
     },
 
     // The next scheduled hedge trade, and the investment window
@@ -37,7 +36,7 @@ const CONFIG = {
     // computed each investor's return. This reveals the
     // "Return", "ROI %", and "Payout Given" columns on the
     // leaderboard. Flip it back to false when a new round opens.
-    payoutsRevealed: false
+    payoutsRevealed: true  
 };
 
 /* ------------------------------------------------------------
@@ -49,12 +48,7 @@ const CONFIG = {
    filled in here so they're ready the moment you flip it.
    ------------------------------------------------------------ */
 const LEADERBOARD = [
-    { name: "Naman Raj", investedUSD: 60, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    // { name: "Naman Dhw", investedUSD: 60, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Snehil", investedUSD: 50, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-    { name: "Navneet", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-   { name: "Yash", investedUSD: 30, returnUSD: 0, roiPercent: 0, payoutGiven: false },
-
-
-
+    { id: "INV-NT", name: "Navneet", investedUSD: 30, payoutGiven: false },
+    { id: "INV-YR", name: "Yash", investedUSD: 30, payoutGiven: false },
+    { id: "INV-SP", name: "Snehil", investedUSD: 50, payoutGiven: false },
 ];

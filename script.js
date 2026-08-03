@@ -43,11 +43,14 @@
   function renderStats() {
     const f = CONFIG.fund;
     // document.getElementById("fundTagline").textContent = f.tagline;
-    document.getElementById("statRaised").textContent = formatMoney(f.totalRaisedUSD);
-    document.getElementById("statInvestors").textContent = f.totalInvestors + " investors";
-    document.getElementById("statProfit").textContent = formatMoney(f.totalProfitUSD);
+    const totalInvestedUSD = LEADERBOARD.reduce((sum, investor) => sum + investor.investedUSD, 0);
+    const totalInvestors = LEADERBOARD.length;
 
-    const profitPct = f.totalRaisedUSD > 0 ? (f.totalProfitUSD / f.totalRaisedUSD) * 100 : 0;
+    document.getElementById("statRaised").textContent = formatMoney(totalInvestedUSD);
+    document.getElementById("statInvestors").textContent = totalInvestors + " investors";
+    document.getElementById("statProfit").textContent = formatMoney(totalInvestedUSD * f.returnsMultiplyer);
+
+    const profitPct = totalInvestedUSD > 0 ? ((totalInvestedUSD * f.returnsMultiplyer) / totalInvestedUSD) * 100 : 0;
     document.getElementById("statProfitPct").textContent =
       (profitPct >= 0 ? "+" : "") + profitPct.toFixed(1) + "% overall";
 
@@ -181,16 +184,16 @@
     const hiddenCols = document.querySelectorAll(".col-hidden");
 
     hiddenCols.forEach((col) => {
-        if (CONFIG.payoutsRevealed) {
-            col.classList.remove("col-hidden");
-        }
+      if (CONFIG.payoutsRevealed) {
+        col.classList.remove("col-hidden");
+      }
     });
-    document.getElementById("ledgerSub").textContent = CONFIG.payoutsRevealed
-      ? "Latest trade has settled — returns and payout status below."
+    document.getElementById("ledgerSub").innerHTML = CONFIG.payoutsRevealed
+      ? "Latest trade has settled — returns and payout status below.<br>Investor's name is hidden for privacy."
       : "Payout figures publish once the current trade has settled.";
   }
 
-  function renderLedgerRows() {
+  function renderInvestorRows() {
     const body = document.getElementById("ledgerBody");
     const sorted = [...LEADERBOARD].sort((a, b) => b.investedUSD - a.investedUSD);
     body.innerHTML = "";
@@ -198,17 +201,19 @@
     sorted.forEach((investor, i) => {
       const tr = document.createElement("tr");
 
-      const roiClass = investor.roiPercent >= 0 ? "roi-positive" : "roi-negative";
-      const roiSign = investor.roiPercent >= 0 ? "+" : "";
+      const returnsUSD = formatMoney((investor.investedUSD * CONFIG.fund.returnsMultiplyer) * CONFIG.fund.profitSplitMultiplier);
+      const roiPercent = ((investor.investedUSD * CONFIG.fund.returnsMultiplyer) * CONFIG.fund.profitSplitMultiplier) / investor.investedUSD * 100;
+      const roiClass = roiPercent >= 0 ? "roi-positive" : "roi-negative";
+      const roiSign = roiPercent >= 0 ? "+" : "";
       const payoutClass = investor.payoutGiven ? "given" : "pending";
       const payoutLabel = investor.payoutGiven ? "Paid" : "Pending";
 
       tr.innerHTML = `
         <td class="col-rank">${i + 1}</td>
-        <td class="col-name" data-label="Investor"><span class="investor-name">${investor.name}</span></td>
+        <td class="col-name" data-label="Investor"><span class="investor-name">${investor.id}</span></td>
         <td class="col-num" data-label="Invested">${formatMoney(investor.investedUSD)}</td>
-        <td class="col-num col-hidden" data-col="return" data-label="Return">${formatMoney(investor.returnUSD)}</td>
-        <td class="col-num  col-hidden ${roiClass}" data-col="roi" data-label="ROI %">${roiSign}${investor.roiPercent.toFixed(1)}%</td>
+        <td class="col-num col-hidden" data-col="return" data-label="Return">${returnsUSD}</td>
+        <td class="col-num  col-hidden ${roiClass}" data-col="roi" data-label="ROI %">${roiSign}${roiPercent.toFixed(1)} %</td>
         <td class="col-status col-hidden" data-col="payout" data-label="Payout">
           <span class="payout-pill ${payoutClass}">${payoutLabel}</span>
         </td>
@@ -232,12 +237,23 @@
     btnINR.classList.toggle("is-active", cur === "INR");
 
     renderStats();
-    renderLedgerRows();
+    renderInvestorRows();
   }
 
   function initCurrencyToggle() {
     document.getElementById("btnUSD").addEventListener("click", () => setCurrency("USD"));
     document.getElementById("btnINR").addEventListener("click", () => setCurrency("INR"));
+  }
+
+  function LB() {
+    if (CONFIG.payoutsRevealed) {
+      document.getElementById("InvestorLeaderboard").style.display = "block";
+      document.getElementById("TradeWindow").style.display = "none";
+    }
+    else {
+      document.getElementById("InvestorLeaderboard").style.display = "none";
+    }
+
   }
 
   /* ---------------- init ---------------- */
@@ -247,8 +263,9 @@
     renderStats();
     renderWindowDates();
     tickCountdown();
-    renderLedgerRows();
+    renderInvestorRows();
     initCurrencyToggle();
+    LB();
     setInterval(tickCountdown, 1000);
     window.addEventListener("resize", renderTimelineProgress);
   }
