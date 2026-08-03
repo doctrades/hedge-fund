@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,6 +131,55 @@
       </div>
     </section>
 
+    <!-- RETURN CALCULATOR -->
+    <section class="calc-section wrap" id="ReturnCalculator">
+      <div class="calc-card">
+        <div class="calc-heading">
+          <h2>Expected Return Calculator</h2>
+          <p class="calc-sub">Drag the slider to see what your investment could returnon this trade.
+          </p>
+        </div>
+
+        <div class="calc-body">
+          <div class="calc-amount-display">
+            <span class="calc-currency-sym" id="calcCurSym">$</span>
+            <span class="calc-amount-num" id="calcAmountNum">30</span>
+          </div>
+
+          <div class="calc-slider-wrap">
+            <input type="range" id="calcSlider" class="calc-slider" min="30" max="500" step="1" value="30"
+              aria-label="Investment amount">
+            <div class="calc-slider-labels">
+              <span id="calcMinLabel">$30</span>
+              <span id="calcMaxLabel">$500</span>
+            </div>
+          </div>
+
+          <div class="calc-results">
+            <div class="calc-result-row">
+              <span class="calc-result-label">Your Investment</span>
+              <span class="calc-result-value" id="calcInvested">$30</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-label">Gross Return<span class="calc-mult-badge calc-result-value--muted"
+                  id="calcMultiplierLabel">0x</span></span>
+              <span class="calc-result-value calc-result-value--muted" id="calcProfit">$0</span>
+            </div>
+            <div class="calc-result-row">
+              <span class="calc-result-label">Profit Split (20%)</span>
+              <span class="calc-result-value calc-result-value--muted" id="calcFundShare">−$0</span>
+            </div>
+            <div class="calc-result-row calc-result-row--total">
+              <span class="calc-result-label">Total Payout <span class="calc-mult-badge"
+                  id="calcReturnMultiplierLabel">0x</span></span>
+              <span class="calc-result-value calc-result-value--gold" id="calcTotal">$30</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- LEADERBOARD -->
     <section class="ledger-section wrap" id="InvestorLeaderboard">
       <div class="ledger-heading">
@@ -154,7 +204,8 @@
           </tbody>
         </table>
         <p class="ledger-note">
-        The return amount is calculated after deducting 20% profit share and same ammount will be credited to the investor's account.
+          The return amount is calculated after deducting 20% profit share and same ammount will be credited to the
+          investor's account.
       </div>
     </section>
 
@@ -174,6 +225,7 @@
 
   <script src="data.js"></script>
   <script src="script.js"></script>
+  <script src="calculator.js"></script>
 </body>
 
 </html>

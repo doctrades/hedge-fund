@@ -1,3 +1,4 @@
+// script.js
 /* ============================================================
    DOC TRADES HEDGE FUND — RENDER LOGIC
    Reads CONFIG and LEADERBOARD from data.js and paints the page.
@@ -249,9 +250,11 @@
     if (CONFIG.payoutsRevealed) {
       document.getElementById("InvestorLeaderboard").style.display = "block";
       document.getElementById("TradeWindow").style.display = "none";
+      document.getElementById("ReturnCalculator").style.display = "block";
     }
     else {
       document.getElementById("InvestorLeaderboard").style.display = "none";
+      document.getElementById("ReturnCalculator").style.display = "none";
     }
 
   }
