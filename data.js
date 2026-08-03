@@ -36,7 +36,7 @@ const CONFIG = {
     // computed each investor's return. This reveals the
     // "Return", "ROI %", and "Payout Given" columns on the
     // leaderboard. Flip it back to false when a new round opens.
-    payoutsRevealed: false  
+    payoutsRevealed: true  
 };
 
 /* ------------------------------------------------------------
