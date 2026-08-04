@@ -1,7 +1,7 @@
 const CONFIG = {
     // 1 USD = this many INR. Update this constant whenever you
     // want to refresh the peg used for the currency toggle.
-    usdToInr: 102,
+    usdToInr: 95.07,
 
     fund: {
         name: "Doc Trades Hedge Fund",
@@ -12,7 +12,7 @@ const CONFIG = {
 
     nextTrade: {
         windowOpenDateTime: "2026-08-03T18:00:00+05:30",
-        windowCloseDateTime: "2026-08-06T21:00:00+05:30",
+        windowCloseDateTime: "2026-08-05T21:00:00+05:30",
         tradeDateTime: "2026-08-07T18:00:00+05:30"
     },
 
@@ -33,4 +33,5 @@ const LEADERBOARD = [
     { id: "INV-NT", name: "Navneet", investedUSD: 30, payoutGiven: false },
     { id: "INV-YR", name: "Yash", investedUSD: 30, payoutGiven: false },
     { id: "INV-SP", name: "Snehil", investedUSD: 30, payoutGiven: false },
+    { id: "INV-SG", name: "Shiva", investedUSD: 30, payoutGiven: false },
 ];
