@@ -5,17 +5,18 @@
    ============================================================ */
 
 (function () {
-  const slider        = document.getElementById("calcSlider");
-  const amountNum      = document.getElementById("calcAmountNum");
-  const curSym         = document.getElementById("calcCurSym");
-  const minLabel        = document.getElementById("calcMinLabel");
-  const maxLabel        = document.getElementById("calcMaxLabel");
-  const investedOut     = document.getElementById("calcInvested");
-  const profitOut       = document.getElementById("calcProfit");
-  const fundShareOut     = document.getElementById("calcFundShare");
-  const totalOut        = document.getElementById("calcTotal");
+  const slider = document.getElementById("calcSlider");
+  const amountNum = document.getElementById("calcAmountNum");
+  const curSym = document.getElementById("calcCurSym");
+  const minLabel = document.getElementById("calcMinLabel");
+  const maxLabel = document.getElementById("calcMaxLabel");
+  const investedOut = document.getElementById("calcInvested");
+  const profitOut = document.getElementById("calcProfit");
+  const fundShareOut = document.getElementById("calcFundShare");
+  const totalOut = document.getElementById("calcTotal");
   const multiplierLabel = document.getElementById("calcMultiplierLabel");
   const returnMultiplierLabel = document.getElementById("calcReturnMultiplierLabel");
+
   if (!slider) return;
 
   let currency = "USD";
@@ -34,20 +35,20 @@
     const mult = CONFIG.fund.returnsMultiplyer;
     const split = CONFIG.fund.profitSplitMultiplier;
 
-    const profitUSD    = investedUSD * mult;
-    const investorShareUSD = profitUSD ;
-    const fundShareUSD  = profitUSD * (1 - split);
-    const totalUSD      =  investorShareUSD - fundShareUSD; //investedUSD +
+    const profitUSD = investedUSD * mult;
+    const investorShareUSD = profitUSD;
+    const fundShareUSD = profitUSD * (1 - split);
+    const totalUSD = investorShareUSD - fundShareUSD; //investedUSD +
 
     curSym.textContent = symbol();
     amountNum.textContent = toDisplay(investedUSD);
 
-    investedOut.textContent  = symbol() + toDisplay(investedUSD);
-    profitOut.textContent    = symbol() + toDisplay(investorShareUSD);
+    investedOut.textContent = symbol() + toDisplay(investedUSD);
+    profitOut.textContent = symbol() + toDisplay(investorShareUSD);
     fundShareOut.textContent = "−" + symbol() + toDisplay(fundShareUSD);
-    totalOut.textContent     = symbol() + toDisplay(totalUSD );
+    totalOut.textContent = symbol() + toDisplay(totalUSD);
     multiplierLabel.textContent = `${mult}x`;
-    returnMultiplierLabel.textContent = `${(mult*split).toFixed(2)}x`;
+    returnMultiplierLabel.textContent = `${(mult * split).toFixed(2)}x`;
     const pct = ((investedUSD - slider.min) / (slider.max - slider.min)) * 100;
     slider.style.setProperty("--fill", pct + "%");
   }

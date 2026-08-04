@@ -16,9 +16,14 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
 </head>
 
 <body>
+  <div class="loader-overlay" id="loaderOverlay">
+    <div class="loader-spinner"></div>
+    <p class="loader-text">Loading fund data…</p>
+  </div>
 
   <div class="grain-overlay" aria-hidden="true"></div>
 
@@ -40,7 +45,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="app-hidden" id="appMain">
 
     <!-- HERO -->
     <section class="hero wrap">
@@ -136,8 +141,7 @@
       <div class="calc-card">
         <div class="calc-heading">
           <h2>Expected Return Calculator</h2>
-          <p class="calc-sub">Drag the slider to see what your investment could returnon this trade.
-          </p>
+          <p class="calc-sub" id="calcSub">Calculate your expected returns on investment, by this trade.</p>
         </div>
 
         <div class="calc-body">
@@ -156,7 +160,7 @@
           </div>
 
           <div class="calc-results">
-            <div class="calc-result-row">
+            <div class="calc-result-row" id="calcInvestedRow" style="display: none;">
               <span class="calc-result-label">Your Investment</span>
               <span class="calc-result-value" id="calcInvested">$30</span>
             </div>
@@ -170,7 +174,7 @@
               <span class="calc-result-value calc-result-value--muted" id="calcFundShare">−$0</span>
             </div>
             <div class="calc-result-row calc-result-row--total">
-              <span class="calc-result-label">Total Payout <span class="calc-mult-badge"
+              <span class="calc-result-label">Your Payout <span class="calc-mult-badge"
                   id="calcReturnMultiplierLabel">0x</span></span>
               <span class="calc-result-value calc-result-value--gold" id="calcTotal">$30</span>
             </div>
@@ -223,9 +227,13 @@
     </div>
   </footer>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
-  <script src="calculator.js"></script>
+    <script src="script.js"></script>
+    <script src="calculator.js"></script>
+  <script>
+    document.getElementById("appMain").classList.remove("app-hidden");
+    document.getElementById("loaderOverlay").classList.add("is-hidden");
+  </script>
+</body>
 </body>
 
 </html>
