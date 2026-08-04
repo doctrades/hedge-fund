@@ -35,6 +35,7 @@ const LEADERBOARD = [
     { id: "INV-SP", name: "Snehil", investedUSD: 30, payoutGiven: false },
     { id: "INV-SG", name: "Shiva", investedUSD: 30, payoutGiven: false },
      { id: "INV-GK", name: "Gitesh", investedUSD: 30, payoutGiven: false },
+    { id: "INV-SM", name: "Shreyash", investedUSD: 30, payoutGiven: false },
      { id: "INV-NS", name: "Naman Raj", investedUSD: 60, payoutGiven: false },
      { id: "INV-ND", name: "Naman Dhw", investedUSD: 60, payoutGiven: false },
 ];
