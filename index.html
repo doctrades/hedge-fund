@@ -60,7 +60,7 @@
           <span class="stat-foot" id="statInvestors">0 investors</span>
         </div>
         <div class="stat-card">
-          <span class="stat-label">Profit to Date</span>
+          <span class="stat-label">Hedge Fund </span>
           <span class="stat-value stat-value--gold" id="statProfit">$0</span>
           <span class="stat-foot" id="statProfitPct">+0.0% overall</span>
         </div>
@@ -198,9 +198,9 @@
               <th class="col-rank">#</th>
               <th class="col-name">Investor</th>
               <th class="col-num">Invested</th>
-              <th class="col-num col-hidden" data-col="return">Return</th>
+              <th class="col-num col-hidden" data-col="payout">Payout</th>
               <th class="col-num col-hidden" data-col="roi">ROI %</th>
-              <th class="col-status col-hidden" data-col="payout">Payout</th>
+              <th class="col-status col-hidden" data-col="payout status">Payout Status</th>
             </tr>
           </thead>
           <tbody id="ledgerBody">
@@ -227,8 +227,8 @@
     </div>
   </footer>
 
-    <script src="script.js"></script>
-    <script src="calculator.js"></script>
+  <script src="script.js"></script>
+  <script src="calculator.js"></script>
   <script>
     document.getElementById("appMain").classList.remove("app-hidden");
     document.getElementById("loaderOverlay").classList.add("is-hidden");

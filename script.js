@@ -43,15 +43,22 @@
 
   function renderStats() {
     const f = CONFIG.fund;
-    // document.getElementById("fundTagline").textContent = f.tagline;
     const totalInvestedUSD = LEADERBOARD.reduce((sum, investor) => sum + investor.investedUSD, 0);
     const totalInvestors = LEADERBOARD.length;
 
+    // Keep the raw number for math
+    const hedgeFundBalanceRaw = (totalInvestedUSD * f.returnsMultiplyer);
+    // Format only for display
+    const hedgeFundBalanceUSD = formatMoney(hedgeFundBalanceRaw);
+
     document.getElementById("statRaised").textContent = formatMoney(totalInvestedUSD);
     document.getElementById("statInvestors").textContent = totalInvestors + " investors";
-    document.getElementById("statProfit").textContent = formatMoney(totalInvestedUSD * f.returnsMultiplyer);
+    document.getElementById("statProfit").textContent = hedgeFundBalanceUSD;
 
-    const profitPct = totalInvestedUSD > 0 && f.returnsMultiplyer > 0 ? (((totalInvestedUSD * f.returnsMultiplyer) - totalInvestedUSD) / totalInvestedUSD) * 100 : 0;
+    const profitPct = totalInvestedUSD > 0 && f.returnsMultiplyer > 1
+      ? ((hedgeFundBalanceRaw - totalInvestedUSD) / totalInvestedUSD) * 100
+      : 0;
+
     document.getElementById("statProfitPct").textContent =
       (profitPct >= 0 ? "+" : "") + profitPct.toFixed(1) + "% overall";
 
@@ -203,7 +210,7 @@
       const tr = document.createElement("tr");
 
       const returnsUSD = formatMoney((investor.investedUSD * CONFIG.fund.returnsMultiplyer) * CONFIG.fund.profitSplitMultiplier);
-      const roiPercent = (((investor.investedUSD * CONFIG.fund.returnsMultiplyer) * CONFIG.fund.profitSplitMultiplier) / investor.investedUSD * 100)-100;
+      const roiPercent = (((investor.investedUSD * CONFIG.fund.returnsMultiplyer) * CONFIG.fund.profitSplitMultiplier) / investor.investedUSD * 100) - 100;
       const roiClass = roiPercent >= 0 ? "roi-positive" : "roi-negative";
       const roiSign = roiPercent >= 0 ? "+" : "";
       const payoutClass = investor.payoutGiven ? "given" : "pending";
@@ -211,11 +218,11 @@
 
       tr.innerHTML = `
         <td class="col-rank">${i + 1}</td>
-        <td class="col-name" data-label="Investor"><span class="investor-name">${CONFIG.nameRevealed ? investor.name :  investor.id}</span></td>
+        <td class="col-name" data-label="Investor"><span class="investor-name">${CONFIG.nameRevealed ? investor.name : investor.id}</span></td>
         <td class="col-num calc-result-value--muted" data-label="Invested">${formatMoney(investor.investedUSD)}</td>
-        <td class="col-num col-hidden" data-col="return" data-label="Return">${returnsUSD}</td>
+        <td class="col-num col-hidden" data-col="return" data-label="Payout">${returnsUSD}</td>
         <td class="col-num  col-hidden ${roiClass}" data-col="roi" data-label="ROI %">${roiSign}${roiPercent.toFixed(1)} %</td>
-        <td class="col-status col-hidden" data-col="payout" data-label="Payout">
+        <td class="col-status col-hidden" data-col="payout" data-label="Payout Status">
           <span class="payout-pill ${payoutClass}">${payoutLabel}</span>
         </td>
       `;
