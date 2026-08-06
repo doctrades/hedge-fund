@@ -1,7 +1,7 @@
 const CONFIG = {
     // 1 USD = this many INR. Update this constant whenever you
     // want to refresh the peg used for the currency toggle.
-    usdToInr: 104,
+    usdToInr: 96.77,
 
     fund: {
         name: "Doc Trades Hedge Fund",
@@ -30,12 +30,12 @@ CONFIG.payoutsRevealed = CONFIG.fund.returnsMultiplyer > 1;
    LEADERBOARD
    ------------------------------------------------------------ */
 const LEADERBOARD = [
-    { id: "INV-NT", name: "Navneet", investedUSD: 24, payoutGiven: false },
-    { id: "INV-YR", name: "Yash", investedUSD: 30.769, payoutGiven: false },
-    { id: "INV-SP", name: "Snehil", investedUSD: 30.769, payoutGiven: false },
-    { id: "INV-SG", name: "Shiva", investedUSD: 30.769, payoutGiven: false },
-    { id: "INV-GK", name: "Gitesh", investedUSD: 30.769, payoutGiven: false },
-    { id: "INV-SM", name: "Shreyash", investedUSD: 25.9, payoutGiven: false },
-    //  { id: "INV-NS", name: "Naman Raj", investedUSD: 59.61, payoutGiven: false },
-    { id: "INV-ND", name: "Naman Dhw", investedUSD: 59.61, payoutGiven: false },
+    { id: "INV-NT", name: "Navneet", investedUSD: 25.83, payoutGiven: false },
+    { id: "INV-YR", name: "Yash", investedUSD: 33.07, payoutGiven: false },
+    { id: "INV-SP", name: "Snehil", investedUSD: 33.07, payoutGiven: false },
+    { id: "INV-SG", name: "Shiva", investedUSD: 25.83, payoutGiven: false },
+    { id: "INV-GK", name: "Gitesh", investedUSD: 33.07, payoutGiven: false },
+    { id: "INV-SM", name: "Naman Dhw", investedUSD: 64.07, payoutGiven: false },
+    { id: "INV-NS", name: "Shreyash", investedUSD: 27.90, payoutGiven: false },
+    { id: "INV-ND", name: "Naman Raj", investedUSD: 67.17, payoutGiven: false },
 ];
