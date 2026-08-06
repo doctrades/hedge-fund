@@ -30,6 +30,7 @@ CONFIG.payoutsRevealed = CONFIG.fund.returnsMultiplyer > 1;
    LEADERBOARD
    ------------------------------------------------------------ */
 const LEADERBOARD = [
+    
     { id: "INV-NT", name: "Navneet", investedUSD: 25.83, payoutGiven: false },
     { id: "INV-YR", name: "Yash", investedUSD: 33.07, payoutGiven: false },
     { id: "INV-SP", name: "Snehil", investedUSD: 33.07, payoutGiven: false },
@@ -38,4 +39,5 @@ const LEADERBOARD = [
     { id: "INV-SM", name: "Naman Dhw", investedUSD: 64.07, payoutGiven: false },
     { id: "INV-NS", name: "Shreyash", investedUSD: 27.90, payoutGiven: false },
     { id: "INV-ND", name: "Naman Raj", investedUSD: 67.17, payoutGiven: false },
+    
 ];
