@@ -1,7 +1,7 @@
 const CONFIG = {
     // 1 USD = this many INR. Update this constant whenever you
     // want to refresh the peg used for the currency toggle.
-    usdToInr: 96.77,
+    usdToInr: 95.6245,
 
     fund: {
         name: "Doc Trades Hedge Fund",
