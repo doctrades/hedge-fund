@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Doc Trades — Hedge Fund</title>
+  <meta name="description" content="Live performance, trade history, and an expected return calculator for the Doc Trades Hedge Fund." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="index">
+
+  <div id="site-header"></div>
+
+  <main>
+    <section class="hero">
+      <div class="ticker" id="hero-ticker"></div>
+      <div class="wrap">
+        <span class="eyebrow"><span class="dot"></span>Fund performance, in real time</span>
+        <h1>Doc Trades <em>Hedge Fund</em></h1>
+        <p class="sub">A running ledger of every trade, every investor, and every payout — updated the moment the numbers change.</p>
+
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Latest activity</span>
+            <h2>Recent trades</h2>
+          </div>
+          <p><a href="performance.html" style="color:var(--accent); text-decoration:none; font-family:var(--mono); font-size:13px;">View full performance &rarr;</a></p>
+        </div>
+        <div class="trade-list" id="recent-trades"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/home.js"></script>
+</body>
+</html>

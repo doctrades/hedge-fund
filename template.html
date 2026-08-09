@@ -1,0 +1,60 @@
+<!--
+  TEMPLATE — copy this file to create a new page.
+
+  1. Rename the file (e.g. faq.html).
+  2. Change <title> and data-page below.
+  3. Add { href: "faq.html", label: "FAQ" } to NAV_LINKS in
+     assets/js/app.js so it shows up in the nav.
+  4. Put your content between <main> and </main>.
+     - Use class="section" for each content block.
+     - Drop <div data-component="calculator"></div> anywhere
+       you want the Return Calculator to appear.
+  5. If the page needs its own dynamic content driven by
+     CONFIG/NEWS, create assets/js/pages/yourpage.js (copy the
+     pattern in assets/js/pages/investors.js) and include it
+     at the bottom, after app.js.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Page Title — Doc Trades Hedge Fund</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="template">
+
+  <div id="site-header"></div>
+
+  <main>
+    <section class="hero" style="padding-bottom: 10px;">
+      <div class="wrap">
+        <span class="eyebrow"><span class="dot"></span>Eyebrow text</span>
+        <h1 style="font-size: clamp(32px, 6vw, 48px);">Page <em>title</em></h1>
+        <p class="sub">One line describing what this page is for.</p>
+      </div>
+    </section>
+
+    <section class="section" style="border-top:none;">
+      <div class="wrap">
+        <!-- your content here -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div data-component="calculator"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <!-- <script src="assets/js/pages/yourpage.js"></script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => Site.init("template.html"));
+  </script>
+</body>
+</html>

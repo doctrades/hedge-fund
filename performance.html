@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Performance — Doc Trades Hedge Fund</title>
+  <meta name="description" content="Full trade-by-trade performance log for the Doc Trades Hedge Fund." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="performance">
+
+  <div id="site-header"></div>
+
+  <main>
+    <section class="hero" style="padding-bottom: 10px;">
+      <div class="wrap">
+        <span class="eyebrow"><span class="dot"></span>Trade by trade</span>
+        <h1 style="font-size: clamp(32px, 6vw, 48px);">Performance <em>log</em></h1>
+        <p class="sub">Every closed trade, who rode it, and what it returned. Tap a trade to expand it.</p>
+      </div>
+    </section>
+
+    <section class="section" style="border-top:none;">
+      <div class="wrap">
+        <div class="trade-list" id="trade-timeline"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div data-component="calculator"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/performance.js"></script>
+</body>
+</html>
