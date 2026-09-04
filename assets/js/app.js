@@ -322,7 +322,7 @@ function totalsAcrossTrades() {
         inv.investedINR * trade.returnsMultiplier * CONFIG.fund.profitSplitMultiplier;
     });
   });
-  overallPercent = totalInvestedINR > 0 ? (totalReturnsGrossINR / totalInvestedINR ) * 100 : 0;
+  overallPercent = totalInvestedINR > 0 ? ((totalReturnsGrossINR-totalInvestedINR) / totalInvestedINR ) * 100 : 0;
 
   return { totalInvestedINR, totalReturnsGrossINR, totalReturnsSplitINR, overallPercent };
 }
