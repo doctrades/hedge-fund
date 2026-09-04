@@ -12,7 +12,7 @@
 const CONFIG = {
   // 1 USD = this many INR. Update this constant whenever you
   // want to refresh the peg used for the currency toggle.
-  usdToInr: 95.6245,
+  usdToInr: 97.25,
 
   fund: {
     name: "Doc Trades",
@@ -27,7 +27,7 @@ const CONFIG = {
   // payoutsRevealed: true  -> show computed payout / return figures per investor
   //                  false -> amounts are masked with "••••" on the Investors
   //                           and Performance pages (fund totals are unaffected)
-  nameRevealed: false,
+  nameRevealed: true,
   payoutsRevealed: true,
 
   // Defaults for the "Expected Return Calculator" widget.
@@ -52,12 +52,14 @@ const CONFIG = {
  */
 const NEWS = [
   {
-    id: "twelve_august_26",
-    date: "2026-08-12",
-    label: "Aug 12 trade",
-    returnsMultiplier: 0,
+    id: "four_september_04",
+    date: "2026-09-04",
+    label: "Sept 4 trade",
+    returnsMultiplier: 3.79,
     investors: [
-      { id: "INV-NS", name: "Naman Raj Singh",   investedINR: 6300, payoutGiven: false },
+      { id: "INV-NS", name: "Naman Raj Singh",   investedINR: 11000, payoutGiven: false },
+      {id:"INV-SM", name:"Shreyash Mishra", investedINR:3800,payoutGiven:false},
+      {id:"INV-YR", name:"Yash Rajpoot", investedINR:3200,payoutGiven:false},
     ],
   },
 
