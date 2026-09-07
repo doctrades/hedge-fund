@@ -57,9 +57,9 @@ const NEWS = [
     label: "Sept 4 trade",
     returnsMultiplier: 3.79,
     investors: [
-      { id: "INV-NS", name: "Naman Raj Singh",   investedINR: 11000, payoutGiven: false },
-      {id:"INV-SM", name:"Shreyash Mishra", investedINR:3800,payoutGiven:false},
-      {id:"INV-YR", name:"Yash Rajpoot", investedINR:3200,payoutGiven:false},
+      { id: "INV-NS", name: "Naman Raj Singh",   investedINR: 11000, payoutGiven: true },
+      {id:"INV-SM", name:"Shreyash Mishra", investedINR:3800,payoutGiven:true},
+      {id:"INV-YR", name:"Yash Rajpoot", investedINR:3200,payoutGiven:true},
     ],
   },
 
